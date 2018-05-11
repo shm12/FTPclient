@@ -12,5 +12,6 @@ int main(int argc, char const *argv[])
 		domain[] = argv[1];
 		port[] = "21"
 	}
+	//TO DO FOR NOW: call to FTPconnect functoin
 	return 0;
 }
