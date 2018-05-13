@@ -3,15 +3,31 @@
 
 int main(int argc, char const *argv[])
 {
-	char domain[], port[];
-	if (argc => 3){
+	char address[], prt[];
+	char usage[];//need to be writen yet
+	int command_sockfd, data_sockfd;
+	int port;
+	int err;
+
+	if (argc == 3){
 		domain[] = &argv[1];
-		port[] = argv[2];
+		prt[] = argv[2];
 	}
 	else if(argc == 2){
 		domain[] = argv[1];
-		port[] = "21"
+		prt[] = "21"
 	}
-	//TO DO FOR NOW: call to FTPconnect functoin
+	else{
+		printf("%s\n", usage);
+	}
+
+	//TO DO: convert hostname to ip, port to int, write usage.
+	
+	//connect
+	if (err = (FTPconnect(address, port, &command_sockfd, &data_sockfd)) != 0){
+		printf("exiting...\n");
+		return err;
+	}
+
 	return 0;
 }
