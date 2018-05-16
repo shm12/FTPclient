@@ -157,7 +157,6 @@ int port_calculate(char *rcv){
 	}
 	p1 = atoi(cp1);
 	p2 = atoi(cp2);
-
-	printf("port is: %d\n", (p1*256 + p2));
+	
 	return p1*256 + p2;
 }
