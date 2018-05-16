@@ -1,4 +1,5 @@
 #include "generally.h"
+
 int recv_data(int sockfd, void *buffer, int buffer_size){
 	int lenght;
 

@@ -5,7 +5,7 @@ int main(int argc, char const *argv[])
 {
 	char *address = (char *) malloc(1024 * sizeof(char));
 	char pr[6];
-	char usage[] = "Usage: <name of th program> <hostnam> [port].\nNote: port 21 is default.";//need to be writen yet
+	char usage[] = "Usage: <name of the program> <hostname> [port].\nNote: port 21 is default.";//need to be writen yet
 	int command_sockfd, data_sockfd;
 	unsigned  port;
 	char* command;
@@ -21,6 +21,7 @@ int main(int argc, char const *argv[])
 	}
 	else{
 		printf("%s\n", usage);
+		return 0;
 	}
 
 	//get ipv4 address
@@ -37,9 +38,11 @@ int main(int argc, char const *argv[])
 		printf("Error: no valid port.\n");
 		return -7;
 	}
-
+	
 	//connect
 	if ((err = (FTPconnect(address, port, &command_sockfd, &data_sockfd))) != 0){
+		printf("Errno: %d\n", errno);
+		printf("%d\n", err);
 		printf("Exiting...\n");
 		close(command_sockfd);
 		close(data_sockfd);

@@ -5,7 +5,7 @@
 #include <sys/socket.h>
 #include <netinet/in.h>
 #include <arpa/inet.h>
-
+#include <errno.h>
 int FTPconnect(char address[], int port, int* command_sockfd, int* data_sockfd);
 
 int login(int sockfd);
